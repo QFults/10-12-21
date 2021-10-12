@@ -14,7 +14,7 @@ const server = new ApolloServer({
   context: require('./utils/auth.js').authMiddleware
 })
 
-server.applyMiddleware(app)
+server.applyMiddleware({ app })
 
 app.use(express.static(join(__dirname, 'client', 'build')))
 app.use(express.urlencoded({ extended: true }))

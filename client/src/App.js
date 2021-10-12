@@ -8,6 +8,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+import { StoreProvider } from './utils/GlobalState.js'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
 
@@ -21,14 +22,16 @@ const App = () => {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route path='/login'>
-              <Auth />
-            </Route>
-          </Switch>
+          <StoreProvider>
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route path='/login'>
+                <Auth />
+              </Route>
+            </Switch>
+          </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
