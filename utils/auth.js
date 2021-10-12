@@ -11,7 +11,7 @@ module.exports = {
     }
 
     try {
-      const { _id } =jwt.verify(token, process.env.SECRET, { maxAge: '2h' })
+      const { _id } = jwt.verify(token, process.env.SECRET, { maxAge: '2h' })
       const user = await User.findById(_id)
       req.user = user
     } catch (err) {
